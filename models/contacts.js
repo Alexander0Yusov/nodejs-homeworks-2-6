@@ -44,8 +44,16 @@ const updateContact = async (contactId, body) => {
   if (index === -1) {
     return null;
   }
+
+  const { name: name_, email: email_, phone: phone_ } = allContacts[index];
   const { name, email, phone } = body;
-  const newContact = { id: contactId, name, email, phone };
+
+  const newContact = {
+    id: contactId,
+    name: name || name_,
+    email: email || email_,
+    phone: phone || phone_,
+  };
   allContacts.splice(index, 1, newContact);
   fs.writeFile(contactsPath, JSON.stringify(allContacts, null, 2));
   return newContact;
