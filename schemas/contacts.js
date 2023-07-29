@@ -22,7 +22,7 @@ const putSchema = Joi.object({
 
 const updateFavoriteSchema = Joi.object({
   favorite: Joi.boolean().required().messages({
-    "any.required": "missing required name field",
+    "any.required": "missing field favorite",
   }),
 });
 
