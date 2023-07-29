@@ -33,7 +33,7 @@ const deleteById = async (req, res) => {
 
 const updateById = async (req, res) => {
   const { name, email, phone } = req.body;
-  if (!(name || email || phone)) {
+  if (!(name || email || phone || favorite)) {
     throw HttpError(400, "missing fields");
   }
 
@@ -50,7 +50,7 @@ const updateById = async (req, res) => {
 
 const updateStatusContact = async (req, res) => {
   const { name, email, phone } = req.body;
-  if (!(name || email || phone)) {
+  if (!(name || email || phone || favorite)) {
     throw HttpError(400, "missing fields");
   }
 
