@@ -2,13 +2,16 @@ const express = require("express");
 const ctrls = require("../../controllers/users");
 
 const { validateBody, authenticate } = require("../../middlewares");
-const { userJoiSchema, userPatchSchema } = require("../../schemas/users");
+const {
+  userRegisterLoginSchema,
+  userPatchSchema,
+} = require("../../schemas/users");
 
 const router = express.Router();
 
-router.post("/register", validateBody(userJoiSchema), ctrls.register);
+router.post("/register", validateBody(userRegisterLoginSchema), ctrls.register);
 
-router.post("/login", validateBody(userJoiSchema), ctrls.login);
+router.post("/login", validateBody(userRegisterLoginSchema), ctrls.login);
 
 router.get("/current", authenticate, ctrls.getCurrent);
 

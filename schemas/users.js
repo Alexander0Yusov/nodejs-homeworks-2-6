@@ -1,7 +1,7 @@
 const Joi = require("joi");
 const { emailRegexp, subscriptionList } = require("./defaults");
 
-const userJoiSchema = Joi.object({
+const userRegisterLoginSchema = Joi.object({
   email: Joi.string().pattern(emailRegexp).required(),
   password: Joi.string().min(6).required(),
 });
@@ -13,6 +13,6 @@ const userPatchSchema = Joi.object({
 });
 
 module.exports = {
-  userJoiSchema,
+  userRegisterLoginSchema,
   userPatchSchema,
 };
