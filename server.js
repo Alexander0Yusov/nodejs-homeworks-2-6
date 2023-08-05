@@ -15,5 +15,3 @@ mongoose
     console.log(er.message);
     process.exit(1);
   });
-
-// https://nodejs-homeworks-2-6.onrender.com
