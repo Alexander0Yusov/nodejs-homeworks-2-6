@@ -1,5 +1,8 @@
 const handleMongooseError = (er, data, next) => {
-  er.status = 400;
+  const { name, code } = er;
+  const status = (name === "MongoServerError", code === 110000) ? 409 : 400;
+
+  er.status = status;
   next();
 };
 
