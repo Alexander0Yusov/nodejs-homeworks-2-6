@@ -6,7 +6,7 @@ const userRegisterLoginSchema = Joi.object({
   password: Joi.string().min(6).required(),
 });
 
-const userPatchSchema = Joi.object({
+const userSubscriptionSchema = Joi.object({
   subscription: Joi.string()
     .valid(...subscriptionList)
     .required(),
@@ -14,5 +14,5 @@ const userPatchSchema = Joi.object({
 
 module.exports = {
   userRegisterLoginSchema,
-  userPatchSchema,
+  userSubscriptionSchema,
 };
