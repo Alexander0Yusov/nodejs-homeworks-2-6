@@ -5,11 +5,16 @@ const { validateBody, authenticate, upload } = require("../../middlewares");
 const {
   userRegisterLoginSchema,
   userSubscriptionSchema,
+  userVerifySchema,
 } = require("../../schemas/users");
 
 const router = express.Router();
 
 router.post("/register", validateBody(userRegisterLoginSchema), ctrls.register);
+
+router.get("/verify/:verificationToken", ctrls.verifyEmail);
+
+router.post("/verify", validateBody(userVerifySchema), ctrls.resendVerifyEmail);
 
 router.post("/login", validateBody(userRegisterLoginSchema), ctrls.login);
 
