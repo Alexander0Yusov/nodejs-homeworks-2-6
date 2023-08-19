@@ -74,6 +74,7 @@ const resendVerifyEmail = async (req, res) => {
     to: email,
     subject: "Verify email",
     html: `<a target='_blank' href="${BASE_URL}/api/users/verify/${user.verificationToken}">Click here for verification<a>`,
+    // html: `<a target='_blank' href="https://nodejs-homeworks-2-6.onrender.com/api/users/verify/${user.verificationToken}">Click here for verification<a>`,
   };
 
   await sendEmail(verifyLetter);
